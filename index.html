@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon - Online Shopping</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="header-top">
+        <a href="#" class="logo" onclick="switchCategory('all')">🛒 Amazon</a>
+
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search Amazon...">
+            <button class="search-btn" onclick="performSearch()">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <div class="header-icons">
+            <div><i class="fas fa-location-dot"></i>Deliver</div>
+            <div onclick="openCart()">
+                <i class="fas fa-shopping-cart"></i>
+                Cart
+                <span class="cart-count" id="cartCount"></span>
+            </div>
+            <div><i class="fas fa-user"></i>Account</div>
+        </div>
+    </div>
+</header>
+
+<nav class="nav">
+    <div class="nav-container">
+        <div class="nav-item active" data-category="all" onclick="switchCategory('all')">All</div>
+        <div class="nav-item" data-category="electronics" onclick="switchCategory('electronics')">Electronics</div>
+        <div class="nav-item" data-category="fashion" onclick="switchCategory('fashion')">Fashion</div>
+        <div class="nav-item" data-category="home" onclick="switchCategory('home')">Home</div>
+        <div class="nav-item" data-category="books" onclick="switchCategory('books')">Books</div>
+        <div class="nav-item" data-category="sports" onclick="switchCategory('sports')">Sports</div>
+        <div class="nav-item" data-category="deals" onclick="switchCategory('deals')">Deals</div>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Welcome to Amazon</h1>
+    <p>Discover amazing deals</p>
+</section>
+
+<section class="products-section">
+    <h2 id="sectionTitle">Featured Products</h2>
+    <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- Cart Modal -->
+<div class="cart-modal" id="cartModal">
+    <div class="cart-content">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button onclick="closeCart()">×</button>
+        </div>
+        <div id="cartItems"></div>
+        <div class="cart-total">
+            Total: $<span id="cartTotal">0.00</span>
+            <button onclick="checkout()" class="checkout-btn">Checkout</button>
+        </div>
+    </div>
+</div>
+
+<!-- JS -->
+<script src="script.js"></script>
+</body>
+</html>
